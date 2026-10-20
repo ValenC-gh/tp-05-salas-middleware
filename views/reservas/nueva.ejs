@@ -1,0 +1,66 @@
+<section class="panel-formulario">
+  <p class="etiqueta"><%= seccion %></p>
+  <h1><%= titulo %></h1>
+
+  <% if (error) { %>
+    <p class="error" role="alert"><%= error %></p>
+  <% } %>
+
+  <form action="/reservas" method="post" class="formulario">
+    <label for="estudiante">Estudiante</label>
+    <input
+      id="estudiante"
+      name="estudiante"
+      value="<%= valores.estudiante ?? '' %>"
+      required
+    />
+
+    <label for="email">Email</label>
+    <input
+      id="email"
+      name="email"
+      type="email"
+      value="<%= valores.email ?? '' %>"
+      required
+    />
+
+    <label for="sala">Sala</label>
+    <select id="sala" name="sala" required>
+      <option value="">Elegí una sala</option>
+      <option value="Sala Azul">Sala Azul</option>
+      <option value="Sala Verde">Sala Verde</option>
+      <option value="Sala Estudio">Sala Estudio</option>
+    </select>
+
+    <label for="fecha">Fecha</label>
+    <input
+      id="fecha"
+      name="fecha"
+      type="date"
+      value="<%= valores.fecha ?? '' %>"
+      required
+    />
+
+    <label for="turno">Turno</label>
+    <select id="turno" name="turno" required>
+      <option value="">Elegí un turno</option>
+      <option value="Mañana">Mañana</option>
+      <option value="Tarde">Tarde</option>
+      <option value="Noche">Noche</option>
+    </select>
+
+    <label for="personas">Cantidad de personas</label>
+    <input
+      id="personas"
+      name="personas"
+      type="number"
+      min="1"
+      max="6"
+      step="1"
+      value="<%= valores.personas ?? '' %>"
+      required
+    />
+
+    <button type="submit">Guardar reserva</button>
+  </form>
+</section>

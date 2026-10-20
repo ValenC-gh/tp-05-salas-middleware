@@ -1,0 +1,286 @@
+/* Paleta propia: azul grisáceo + acento cálido */
+:root {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  color: #1f2933;
+  background: #eef2f6;
+  line-height: 1.55;
+  --borde: #d3dae2;
+  --acento: #2f5d8a;
+  --acento-oscuro: #234668;
+  --error: #b3261e;
+  --error-fondo: #fdecea;
+  --texto-suave: #5b6773;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  color: var(--acento);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h1,
+h2,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  font-size: 1.8rem;
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: 1.05rem;
+}
+
+/* --- Layout base --- */
+
+.encabezado,
+.contenedor,
+.pie {
+  width: min(60rem, calc(100% - 2rem));
+  margin-inline: auto;
+}
+
+.encabezado {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-block: 1rem;
+  border-bottom: 1px solid var(--borde);
+}
+
+.encabezado nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 0.95rem;
+}
+
+.marca {
+  font-weight: 700;
+  color: #1f2933;
+}
+
+.contenedor {
+  flex: 1;
+  padding-block: 2.5rem;
+}
+
+.pie {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding-block: 1rem;
+  border-top: 1px solid var(--borde);
+  color: var(--texto-suave);
+  font-size: 0.9rem;
+}
+
+.pie p {
+  margin: 0;
+}
+
+.solicitud {
+  font-family: ui-monospace, monospace;
+}
+
+/* --- Bloques de contenido --- */
+
+.hero,
+.panel-formulario,
+.detalle,
+.estado {
+  max-width: 42rem;
+  padding: 2rem;
+  border: 1px solid var(--borde);
+  border-radius: 0.75rem;
+  background: #ffffff;
+}
+
+.etiqueta {
+  margin-bottom: 0.4rem;
+  color: var(--acento);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.acciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1.25rem;
+}
+
+.cabecera-pagina {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.cabecera-pagina h1 {
+  margin-bottom: 0;
+}
+
+/* --- Botones --- */
+
+.boton,
+button {
+  display: inline-block;
+  padding: 0.55rem 0.9rem;
+  border: 1px solid var(--acento);
+  border-radius: 0.45rem;
+  background: var(--acento);
+  color: #ffffff;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.boton:hover,
+button:hover {
+  background: var(--acento-oscuro);
+  border-color: var(--acento-oscuro);
+  text-decoration: none;
+}
+
+.boton.secundario {
+  background: transparent;
+  color: var(--acento);
+}
+
+.boton.secundario:hover {
+  background: var(--acento);
+  color: #ffffff;
+}
+
+/* --- Listado --- */
+
+.grilla {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 0.9rem;
+}
+
+.tarjeta {
+  padding: 1rem;
+  border: 1px solid var(--borde);
+  border-radius: 0.6rem;
+  background: #ffffff;
+}
+
+.tarjeta h2 {
+  margin-bottom: 0.4rem;
+}
+
+.tarjeta p {
+  margin-bottom: 0.3rem;
+  color: var(--texto-suave);
+}
+
+.estado-vacio {
+  padding: 1.5rem;
+  border: 1px dashed var(--borde);
+  border-radius: 0.6rem;
+  color: var(--texto-suave);
+  text-align: center;
+}
+
+/* --- Detalle --- */
+
+.datos {
+  display: grid;
+  gap: 0.6rem;
+  margin: 0 0 1.25rem;
+}
+
+.datos dt {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--texto-suave);
+}
+
+.datos dd {
+  margin: 0;
+}
+
+/* --- Formulario --- */
+
+.formulario {
+  display: grid;
+  gap: 0.7rem;
+}
+
+.formulario label {
+  font-weight: 600;
+}
+
+.formulario input,
+.formulario select,
+.formulario textarea {
+  width: 100%;
+  padding: 0.55rem;
+  border: 1px solid var(--borde);
+  border-radius: 0.4rem;
+  background: #ffffff;
+  color: inherit;
+  font: inherit;
+}
+
+.formulario button {
+  justify-self: start;
+  margin-top: 0.4rem;
+}
+
+.formulario input:focus,
+.formulario select:focus,
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--acento);
+  outline-offset: 2px;
+}
+
+/* --- Error --- */
+
+.error {
+  padding: 0.6rem 0.8rem;
+  border-left: 3px solid var(--error);
+  border-radius: 0.3rem;
+  background: var(--error-fondo);
+  color: var(--error);
+  font-weight: 600;
+}
+
+/* --- Responsive --- */
+
+@media (max-width: 36rem) {
+  .encabezado,
+  .cabecera-pagina {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
